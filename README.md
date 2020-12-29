@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Simple react application
 
-Typescript
-Redux
-React Hooks
+#### Typescript
+#### Redux
+#### React Hooks
 
