@@ -13,7 +13,7 @@ export default function App() {
 				Counter: {counter}
 			</Typography>
 			<Typography paragraph variant="h4">
-				Logged in: {auth.authenticated ? 'True' : 'False'}{' '}
+				Auth: {auth.authenticated ? 'Logged in' : 'Please, log in'}
 			</Typography>
 			<Card>
 				<Button
@@ -34,27 +34,17 @@ export default function App() {
 				<Button
 					onClick={() =>
 						dispatch({
-							type: 'LOGIN',
-							payload: { user: 'Thomas', authenticated: true },
+							type: !auth.authenticated ? 'LOGIN' : 'LOGOUT',
+							payload: {
+								user: !auth.authenticated ? null : 'Thomas',
+								authenticated: !auth.authenticated,
+							},
 						})
 					}
 					variant="contained"
 					color="primary"
 				>
-					LOG IN
-				</Button>
-
-				<Button
-					onClick={() =>
-						dispatch({
-							type: 'LOGOUT',
-							payload: { user: null, authenticated: false },
-						})
-					}
-					variant="contained"
-					color="primary"
-				>
-					LOG OUT
+					{!auth.authenticated ? 'LOG IN' : 'LOG OUT'}
 				</Button>
 			</Card>
 		</Container>
